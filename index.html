@@ -816,17 +816,33 @@
       </p>
 
       <div id="form-wrap">
-        <div class="email-form">
-          <input
-            type="email"
-            class="email-input"
-            id="email-input"
-            placeholder="Your email address&hellip;"
-            autocomplete="email"
-          />
-          <button class="email-submit" id="notify-btn">Notify Me</button>
-        </div>
-        <p class="form-note">No spam. No noise. Just the chronicle.</p>
+        <form
+          action="https://chronicleparty.us20.list-manage.com/subscribe/post?u=0c6dcba4b7339db6826dd0527&amp;id=f5be85e3fa&amp;f_id=00cd61eff0"
+          method="post"
+          id="mc-embedded-subscribe-form"
+          name="mc-embedded-subscribe-form"
+          target="_blank"
+          onsubmit="handleSubscribe(event)"
+          style="margin:0;"
+        >
+          <div class="email-form">
+            <input
+              type="email"
+              name="EMAIL"
+              class="email-input"
+              id="email-input"
+              placeholder="Your email address&hellip;"
+              autocomplete="email"
+              required
+            />
+            <!-- Mailchimp bot protection — do not remove -->
+            <div style="position:absolute;left:-5000px;" aria-hidden="true">
+              <input type="text" name="b_0c6dcba4b7339db6826dd0527_f5be85e3fa" tabindex="-1" value="">
+            </div>
+            <button type="submit" class="email-submit" id="notify-btn">Notify Me</button>
+          </div>
+          <p class="form-note">No spam. No noise. Just the chronicle.</p>
+        </form>
       </div>
 
       <div class="form-success" id="form-success">
@@ -891,24 +907,21 @@
       reveals.forEach(markVisible);
     }
 
-    // ── Email form ──
-    function handleSubscribe() {
+    // ── Email form — submits to Mailchimp, shows success state ──
+    function handleSubscribe(e) {
       var input = document.getElementById('email-input');
       var val = input.value.trim();
       if (!val || !val.includes('@') || !val.includes('.')) {
+        e.preventDefault();
         input.style.borderColor = '#8b1a1a';
         input.focus();
         setTimeout(function() { input.style.borderColor = ''; }, 1500);
         return;
       }
+      // Valid — show success immediately, form submits to Mailchimp in new tab
       document.getElementById('form-wrap').style.display = 'none';
       document.getElementById('form-success').style.display = 'block';
     }
-
-    document.getElementById('notify-btn').addEventListener('click', handleSubscribe);
-    document.getElementById('email-input').addEventListener('keydown', function(e) {
-      if (e.key === 'Enter') handleSubscribe();
-    });
   </script>
 
 </body>
