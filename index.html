@@ -561,7 +561,13 @@
       color: var(--text-dim);
       opacity: 0.6;
     }
-
+.footer-copy a {
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.footer-copy a:hover { color: var(--gold); }
+    
     /* ── ANIMATIONS ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(24px); }
