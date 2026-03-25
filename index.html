@@ -1022,12 +1022,18 @@
       var input = document.getElementById('email-input');
       var val = input.value.trim();
       if (!val || !val.includes('@') || !val.includes('.')) {
-        e.preventDefault();
-        input.style.borderColor = '#8b1a1a';
-        input.focus();
-        setTimeout(function() { input.style.borderColor = ''; }, 1500);
-        return;
-      }
+       // Prevent native form submit (stops new tab), submit to Mailchimp via fetch instead
+e.preventDefault();
+document.getElementById('form-wrap').style.display = 'none';
+document.getElementById('form-success').style.display = 'block';
+
+// Submit to Mailchimp silently in the background
+var form = document.getElementById('mc-embedded-subscribe-form');
+fetch(form.action, {
+  method: 'POST',
+  body: new FormData(form),
+  mode: 'no-cors'
+});
       // Valid — show success immediately, form submits to Mailchimp in new tab
       document.getElementById('form-wrap').style.display = 'none';
       document.getElementById('form-success').style.display = 'block';
