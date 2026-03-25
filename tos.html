@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service — Chronicle Party</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0e0c0a;
+      --bg-mid: #161310;
+      --gold: #c9a84c;
+      --gold-dim: #8a6f3a;
+      --border: #2e2820;
+      --text: #c4b99a;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Crimson Text', Georgia, serif;
+      font-size: 17px;
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: 'Cinzel', serif;
+      font-size: 18px;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+
+    .back-link {
+      font-family: 'Cinzel', serif;
+      font-size: 12px;
+      color: var(--gold-dim);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--gold); }
+
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+
+    .page-title {
+      font-family: 'Cinzel', serif;
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+
+    .last-updated {
+      font-size: 13px;
+      color: var(--gold-dim);
+      margin-bottom: 48px;
+      font-style: italic;
+    }
+
+    .intro {
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    p { margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+
+    ul {
+      list-style: none;
+      margin: 12px 0;
+      padding: 0;
+    }
+
+    ul li {
+      padding: 4px 0 4px 20px;
+      position: relative;
+      color: var(--text);
+    }
+
+    ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--gold-dim);
+    }
+
+    strong {
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    a {
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold-dim);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    a:hover {
+      color: #e8c76a;
+      border-color: var(--gold);
+    }
+
+    .highlight-box {
+      background: var(--bg-mid);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      padding: 16px 20px;
+      border-radius: 4px;
+      margin: 16px 0;
+      color: var(--text);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 40px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--gold-dim);
+    }
+    footer a { color: var(--gold-dim); border-bottom-color: transparent; }
+    footer a:hover { color: var(--gold); }
+    footer .sep { margin: 0 10px; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="/" class="logo">Chronicle Party</a>
+    <a href="/" class="back-link">← Back to Home</a>
+  </header>
+
+  <main>
+    <h1 class="page-title">Terms of Service</h1>
+    <p class="last-updated">Last updated: March 2026</p>
+
+    <div class="intro">
+      <p>These Terms of Service ("Terms") govern your use of Chronicle Party, operated by Ryan Standifird ("we," "us," "our"), based in Oregon, USA. By using Chronicle Party you agree to these Terms.</p>
+    </div>
+
+    <section>
+      <h2>1. The Service</h2>
+      <p>Chronicle Party is a software-as-a-service application that transforms tabletop RPG session transcripts into written prose chronicles using AI. The service is currently in beta — features may change, and occasional downtime or data issues may occur.</p>
+    </section>
+
+    <section>
+      <h2>2. Your Account</h2>
+      <p>You must provide a valid email address to create an account. You are responsible for maintaining the security of your account credentials. Notify us immediately at <a href="mailto:ryan@chronicleparty.com">ryan@chronicleparty.com</a> if you believe your account has been compromised.</p>
+    </section>
+
+    <section>
+      <h2>3. Scrolls and Payment</h2>
+      <p>Chronicle Party uses a scroll-based credit system. Scrolls are purchased via Stripe and consumed when generating chronicles.</p>
+      <ul>
+        <li>Scroll purchases are final and non-refundable except at our sole discretion</li>
+        <li>We reserve the right to adjust scroll pricing at any time with reasonable notice</li>
+        <li>We reserve the right to grant or revoke complimentary scrolls (such as beta credits) at any time</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>4. Acceptable Use</h2>
+      <p>You agree not to:</p>
+      <ul>
+        <li>Use Chronicle Party for any unlawful purpose</li>
+        <li>Upload content you do not have the right to use</li>
+        <li>Attempt to reverse-engineer, scrape, or interfere with the service</li>
+        <li>Use the service to generate content that is harmful, abusive, or violates the rights of others</li>
+        <li>Share your account credentials with others</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>5. Your Content</h2>
+      <p>You retain ownership of the content you upload and create using Chronicle Party, including your transcripts, character backgrounds, and generated chronicles. By using the service, you grant us a limited license to process and store your content solely for the purpose of providing the service to you.</p>
+      <p>We do not claim ownership of your content and will not use it for any purpose beyond operating the service.</p>
+    </section>
+
+    <section>
+      <h2>6. AI-Generated Content</h2>
+      <p>Chronicles generated by Chronicle Party are produced using AI. We make no guarantees about the accuracy, quality, or consistency of AI-generated output. You are responsible for reviewing and editing generated content before use.</p>
+    </section>
+
+    <section>
+      <h2>7. Beta Service</h2>
+      <div class="highlight-box">
+        <p>Chronicle Party is currently in beta. This means:</p>
+        <ul>
+          <li>Features may change or be removed without notice</li>
+          <li>We may experience downtime or data loss</li>
+          <li>The service is provided as-is during beta with no uptime guarantees</li>
+        </ul>
+        <p style="margin-top: 12px;">We will make reasonable efforts to preserve your data but cannot guarantee against loss during the beta period. We recommend exporting important chronicles.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>8. Termination</h2>
+      <p>We reserve the right to suspend or terminate accounts that violate these Terms, at our sole discretion. You may delete your account at any time by contacting <a href="mailto:ryan@chronicleparty.com">ryan@chronicleparty.com</a>.</p>
+    </section>
+
+    <section>
+      <h2>9. Disclaimer of Warranties</h2>
+      <p>The service is provided "as is" without warranties of any kind, express or implied. We do not warrant that the service will be uninterrupted, error-free, or meet your specific requirements.</p>
+    </section>
+
+    <section>
+      <h2>10. Limitation of Liability</h2>
+      <p>To the maximum extent permitted by Oregon law, we shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of the service. Our total liability to you shall not exceed the amount you paid us in the 12 months preceding the claim.</p>
+    </section>
+
+    <section>
+      <h2>11. Governing Law</h2>
+      <p>These Terms are governed by the laws of the State of Oregon, USA. Any disputes shall be resolved in the courts of Oregon.</p>
+    </section>
+
+    <section>
+      <h2>12. Changes to These Terms</h2>
+      <p>We may update these Terms from time to time. We will notify you of significant changes via email. Continued use of the service after changes constitutes acceptance of the updated Terms.</p>
+    </section>
+
+    <section>
+      <h2>13. Contact</h2>
+      <p>Questions about these Terms? Email us at <a href="mailto:ryan@chronicleparty.com">ryan@chronicleparty.com</a>.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Chronicle Party &nbsp;<span class="sep">·</span>&nbsp; <a href="/privacy.html">Privacy Policy</a> <span class="sep">·</span> <a href="/tos.html">Terms of Service</a> <span class="sep">·</span> <a href="mailto:ryan@chronicleparty.com">Contact</a></p>
+  </footer>
+
+</body>
+</html>
