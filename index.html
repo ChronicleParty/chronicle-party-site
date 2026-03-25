@@ -974,71 +974,67 @@
   </footer>
 
 
-  <script>
-    // Assemble contact email in JS to prevent scraper harvesting
-    (function() {
-      var el = document.getElementById('contact-link');
-      el.href = ['mailto', ':', 'hello', '@', 'chronicleparty', '.com'].join('');
-    })();
+<script>
+  // Assemble contact email in JS to prevent scraper harvesting
+  (function() {
+    var el = document.getElementById('contact-link');
+    el.href = ['mailto', ':', 'hello', '@', 'chronicleparty', '.com'].join('');
+  })();
 
-    // ── Scroll reveal ──
-    var reveals = document.querySelectorAll('.reveal');
+  // ── Scroll reveal ──
+  var reveals = document.querySelectorAll('.reveal');
 
-    function markVisible(el) {
-      el.classList.add('visible');
-    }
+  function markVisible(el) {
+    el.classList.add('visible');
+  }
 
-    function checkAllInView() {
-      reveals.forEach(function(el) {
-        var rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.92) {
-          markVisible(el);
+  function checkAllInView() {
+    reveals.forEach(function(el) {
+      var rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.92) {
+        markVisible(el);
+      }
+    });
+  }
+
+  window.addEventListener('load', checkAllInView);
+  window.addEventListener('scroll', checkAllInView, { passive: true });
+
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          markVisible(entry.target);
+          observer.unobserve(entry.target);
         }
       });
+    }, { threshold: 0.08 });
+    reveals.forEach(function(el) { observer.observe(el); });
+  } else {
+    reveals.forEach(markVisible);
+  }
+
+  // ── Email form ──
+  function handleSubscribe(e) {
+    e.preventDefault();
+    var input = document.getElementById('email-input');
+    var val = input.value.trim();
+    if (!val || !val.includes('@') || !val.includes('.')) {
+      input.style.borderColor = '#8b1a1a';
+      input.focus();
+      setTimeout(function() { input.style.borderColor = ''; }, 1500);
+      return;
     }
-
-    // Run on load and scroll
-    window.addEventListener('load', checkAllInView);
-    window.addEventListener('scroll', checkAllInView, { passive: true });
-
-    // IntersectionObserver as primary driver
-    if ('IntersectionObserver' in window) {
-      var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            markVisible(entry.target);
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.08 });
-      reveals.forEach(function(el) { observer.observe(el); });
-    } else {
-      // No observer support — show everything immediately
-      reveals.forEach(markVisible);
-    }
-
-    // ── Email form — submits to Mailchimp, shows success state ──
-    function handleSubscribe(e) {
-      var input = document.getElementById('email-input');
-      var val = input.value.trim();
-      if (!val || !val.includes('@') || !val.includes('.')) {
-       // Prevent native form submit (stops new tab), submit to Mailchimp via fetch instead
-e.preventDefault();
-document.getElementById('form-wrap').style.display = 'none';
-document.getElementById('form-success').style.display = 'block';
-
-// Submit to Mailchimp silently in the background
-var form = document.getElementById('mc-embedded-subscribe-form');
-fetch(form.action, {
-  method: 'POST',
-  body: new FormData(form),
-  mode: 'no-cors'
-});
-      // Valid — show success immediately, form submits to Mailchimp in new tab
-      document.getElementById('form-wrap').style.display = 'none';
-      document.getElementById('form-success').style.display = 'block';
-    }
-  </script>
+    document.getElementById('form-wrap').style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+    var form = document.getElementById('mc-embedded-subscribe-form');
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      mode: 'no-cors'
+    });
+  }
+</script>
 
 </body>
 </html>
