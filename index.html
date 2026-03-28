@@ -1028,11 +1028,20 @@
     document.getElementById('form-wrap').style.display = 'none';
     document.getElementById('form-success').style.display = 'block';
     var form = document.getElementById('mc-embedded-subscribe-form');
-    fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      mode: 'no-cors'
-    });
+     fetch('https://chronicleparty.app/api/mailchimp-subscribe', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: emailValue, tag: 'homepage-signup' }),
+  })
+  .then(r => r.json())
+  .then(data => {
+    if (data.success) {
+      // show existing success state
+    }
+  })
+  .catch(() => {
+    // fail silently, show success anyway
+  });
   }
 </script>
 
