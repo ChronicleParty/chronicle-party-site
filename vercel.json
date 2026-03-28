@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/mailchimp-subscribe",
+      "destination": "https://chronicleparty.app/api/mailchimp-subscribe"
+    }
+  ]
+}
