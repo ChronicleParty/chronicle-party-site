@@ -1015,34 +1015,26 @@
   }
 
   // ── Email form ──
-  function handleSubscribe(e) {
-    e.preventDefault();
-    var input = document.getElementById('email-input');
-    var val = input.value.trim();
-    if (!val || !val.includes('@') || !val.includes('.')) {
-      input.style.borderColor = '#8b1a1a';
-      input.focus();
-      setTimeout(function() { input.style.borderColor = ''; }, 1500);
-      return;
-    }
-    document.getElementById('form-wrap').style.display = 'none';
-    document.getElementById('form-success').style.display = 'block';
-    var form = document.getElementById('mc-embedded-subscribe-form');
-     fetch('https://chronicleparty.app/api/mailchimp-subscribe', {
+function handleSubscribe(e) {
+  e.preventDefault();
+  var input = document.getElementById('email-input');
+  var val = input.value.trim();
+  if (!val || !val.includes('@') || !val.includes('.')) {
+    input.style.borderColor = '#8b1a1a';
+    input.focus();
+    setTimeout(function() { input.style.borderColor = ''; }, 1500);
+    return;
+  }
+  document.getElementById('form-wrap').style.display = 'none';
+  document.getElementById('form-success').style.display = 'block';
+  fetch('https://chronicleparty.app/api/mailchimp-subscribe', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email: emailValue, tag: 'homepage-signup' }),
+    body: JSON.stringify({ email: val, tag: 'homepage-signup' }),
   })
   .then(r => r.json())
-  .then(data => {
-    if (data.success) {
-      // show existing success state
-    }
-  })
-  .catch(() => {
-    // fail silently, show success anyway
-  });
-  }
+  .catch(() => {});
+}
 </script>
 
 </body>
