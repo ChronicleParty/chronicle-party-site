@@ -1027,7 +1027,7 @@ function handleSubscribe(e) {
   }
   document.getElementById('form-wrap').style.display = 'none';
   document.getElementById('form-success').style.display = 'block';
-  fetch('https://chronicleparty.app/api/mailchimp-subscribe', {
+  fetch('/api/mailchimp-subscribe', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email: val, tag: 'homepage-signup' }),
